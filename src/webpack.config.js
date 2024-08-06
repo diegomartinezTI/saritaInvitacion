@@ -1,53 +1,23 @@
 const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
-const isProduction = 'production';
 
 module.exports = {
-  entry: './src/index.js', // O el archivo de entrada de tu aplicación
+  entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.[contenthash].js',
-    publicPath: '/static/', // La ruta base para los archivos estáticos
+    filename: 'bundle.js',
+    publicPath: '/'
   },
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: 'babel-loader',
-      },
-      {
         test: /\.css$/,
-        use: [
-          isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1,
-              modules: false,
-              sourceMap: !isProduction,
-            },
-          },
-        ],
-      },
-      {
-        test: /\.(png|jpg|gif|svg)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: 'static/media/[name].[hash:8].[ext]',
-            },
-          },
-        ],
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },
-  plugins: [
-    isProduction && new MiniCssExtractPlugin({
-      filename: 'static/css/[name].[contenthash:8].css', // Guardar los CSS en /static/css
-    }),
-  ].filter(Boolean),
-  mode: isProduction ? 'production' : 'development',
+  resolve: {
+    alias: {
+      '@css': path.resolve(__dirname, 'src/css/'),
+    },
+  },
 };

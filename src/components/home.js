@@ -1,4 +1,4 @@
-import './home.css'; 
+import '../css/global.css'; 
 import { Box, Button } from '@mui/material'; 
 import ImageSlider from './ImageSlider';
 import { useLocation } from 'react-router-dom';
