@@ -11,3 +11,58 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.App {
+  text-align: center;
+  padding: 40px;
+  background: linear-gradient( 90deg, #a7021e, #fffdfd); 
+}
+
+
+.margen{
+  border: 5px solid black !important;    
+  height: 800px;
+  width: 100%;
+  border-radius:1%;
+}
+.izquierda{
+  width: 50%;
+  float: left;
+}
+.container{
+  display: flex;
+  justify-content: space-between; /* Distribuye los hijos horizontalmente */
+}
+.derecha{
+  flex: 1;
+  margin: 10px;
+  width: 50%;
+  float: left;
+}
+
+.nombreSara{
+  font-family: Papyrus, fantasy;
+    font-size: 50px;
+    color: white;
+    font-weight: bold;
+}
+.textoQuince{
+  font-size: 104px;
+  font-family: fantasy;
+  color: white;
+  -webkit-text-stroke: 3px black;
+}
+/* Estilo para vista móvil */
+@media (max-width: 768px) { /* Puedes ajustar el valor según tus necesidades */
+  .container {
+    flex-direction: column; /* Cambia la dirección de los hijos a columna */
+  }
+  
+  .derecha {
+    margin: 5px 0; /* Ajusta los márgenes para vista móvil */
+    width: 100%;
+  }
+  .izquierda { 
+    width: 100%;
+  }
+} 
