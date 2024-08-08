@@ -29,29 +29,15 @@ const ImageSlider = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
-    adaptiveHeight: true,
+    adaptiveHeight: false,
   };
 
   return (
-    <Box sx={{ width: '70%', margin: 'auto', mt: 5 }}>
+    <Box sx={{ width: '60%', margin: 'auto', mt: 5 }}>
       <Slider {...settings}>
         {images.map((image, index) => (
           <Box key={index} sx={{ position: 'relative' }}>
-            <img src={image.url} alt={image.title} style={{ width: '100%', borderRadius: '10px' }} />
-            <Typography
-              variant="h6"
-              sx={{
-                position: 'absolute',
-                bottom: 16,
-                left: 16,
-                color: 'white',
-                backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                padding: '8px',
-                borderRadius: '5px'
-              }}
-            >
-              {image.title}
-            </Typography>
+            <img src={image.url} alt={image.title} style={{ width: '80%', borderRadius: '10px' }} /> 
           </Box>
         ))}
       </Slider>

@@ -1,7 +1,8 @@
 .App {
   text-align: center;
   padding: 40px;
-  background: linear-gradient( 90deg, #a7021e, #fffdfd); 
+  /*background: linear-gradient( 90deg, #a7021e, #fffdfd); */
+  background: white !important;
 }
 
 .App-logo {
@@ -29,15 +30,42 @@
 .App-link {
   color: #61dafb;
 }
+.globos{
+  margin-left: -650px;
+  margin-top: -70px;
+  width: 300px;
+  position: fixed;
+}
 .margen{
-  border: 5px solid black !important;    
-  height: 800px;
+  border: 5px solid rgb(139, 4, 4) !important;    
+  height: 1066px;
   width: 100%;
   border-radius:1%;
 }
-.izquierda{
-  width: 50%;
+.izquierda{ 
   float: left;
+  position: relative;  
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border-right: 1px outset black;
+  height: 1068px;
+}
+.bg-image {
+  opacity: 0.7;
+  margin-top: 10px;
+  width: 250px;
+}
+.esqui-sup-der{
+  z-index: 10;
+  position: absolute;
+  margin-top: -70px;
+  margin-left: 354px;
+  width: 276px;
+}
+.esquina-inf-izq{
+  margin-top: -75px;
+    width: 250px;
+    margin-left: -1000px;
 }
 .container{
   display: flex;
@@ -48,32 +76,63 @@
   margin: 10px;
   width: 50%;
   float: left;
+  position: relative; 
 }
 
 .nombreSara{
   font-family: Papyrus, fantasy;
-    font-size: 50px;
-    color: white;
-    font-weight: bold;
+  font-size: 50px;
+  color: white;
+  font-weight: bold; 
+  -webkit-text-stroke: .3px black 
+}
+.texto{  
+  color: rgb(107, 107, 107);
+  text-align: center;
+  padding: 10%;
+  font-size: 20px;
+  font-weight: 500;
+}
+.left-txts{
+  margin-top: 5%;
 }
 .textoQuince{
   font-size: 104px;
-  font-family: fantasy;
+  font-family: Papyrus, fantasy;
   color: white;
   -webkit-text-stroke: 3px black;
 }
 /* Estilo para vista móvil */
 @media (max-width: 768px) { /* Puedes ajustar el valor según tus necesidades */
   .container {
-    flex-direction: column; /* Cambia la dirección de los hijos a columna */
+    flex-direction: column; /* Cambia la dirección de los hijos a columna */ 
   }
   
   .derecha {
     margin: 5px 0; /* Ajusta los márgenes para vista móvil */
-    width: 100%;
+    width: 100%; 
   }
-  .izquierda { 
+  .izquierda {  
+    text-align: center; 
+    border-right: none;
+  }
+  .esqui-sup-der{
+    z-index: 10;
+    position: absolute;
+    margin-top: -1320px;
+    margin-left: 154px;
+    width: 100px;
+  }
+  .esquina-inf-izq{
+    margin-top: 75px;
+    width: 250px;
+      
+  }
+  .margen{
+    border: 5px solid rgb(139, 4, 4) !important;    
+    height: 1566px;
     width: 100%;
+    border-radius:1%;
   }
 }
 @keyframes App-logo-spin {
