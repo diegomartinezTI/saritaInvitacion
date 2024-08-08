@@ -28,7 +28,7 @@ function HomePage() {
                 Hay momentos en la vida que imaginamos, soñamos y esperamos, mi momento ha llegado y lo quiero compartir con ustedes, familia: 
                 <Typography variant='h4'style={{marginTop:"20px"}}>{family}</Typography>
               </Box>
-              <Box style={{marginTop: "-76px"}}>
+              <Box className="lugar-evento">
                 <Typography>Lugar del evento:</Typography>
                 <a href='https://maps.app.goo.gl/i2jtqN7zFz5Ztqh57' target='_blank'>
                   <Typography>Herencia Mexicana - Salón Jardín </Typography> 
@@ -40,7 +40,9 @@ function HomePage() {
           </Box> 
           <Box className="derecha">
             <img src={esquina2} className='esqui-sup-der'></img>
-            <ImageSlider />
+            <Box className="slider">
+              <ImageSlider />
+            </Box>
             <Box>
                 <Button style={{background:"#8b0404"}} variant="contained">
                   Confirmar Asistencia

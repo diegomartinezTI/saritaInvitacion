@@ -36,6 +36,9 @@
   width: 300px;
   position: fixed;
 }
+.lugar-evento{
+  margin-top: -76px
+}
 .margen{
   border: 5px solid rgb(139, 4, 4) !important;    
   height: 800px;
@@ -109,11 +112,20 @@
   .container {
     flex-direction: column; /* Cambia la dirección de los hijos a columna */ 
   }
+  .texto{
+    margin-top: 30px;
+   }
+
   
   .derecha {
     margin: 5px 0; /* Ajusta los márgenes para vista móvil */
     width: 100%; 
   }
+
+  .lugar-evento{
+    margin-top: 10px
+  }
+
   .izquierda {  
     text-align: center; 
     border-right: none;
@@ -132,9 +144,12 @@
   }
   .margen{
     border: 5px solid rgb(139, 4, 4) !important;    
-    height: 1566px;
+    height: 1366px;
     width: 98%;
     border-radius:1%;
+  }
+  .slider{
+    margin-top: 160px;
   }
 }
 @keyframes App-logo-spin {
