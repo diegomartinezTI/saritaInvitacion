@@ -28,7 +28,7 @@ function HomePage() {
                 Hay momentos en la vida que imaginamos, soñamos y esperamos, mi momento ha llegado y lo quiero compartir con ustedes, familia: 
                 <Typography variant='h4'style={{marginTop:"20px"}}>{family}</Typography>
               </Box>
-              <Box>
+              <Box style={{marginTop: "-76px"}}>
                 <Typography>Lugar del evento:</Typography>
                 <a href='https://maps.app.goo.gl/i2jtqN7zFz5Ztqh57' target='_blank'>
                   <Typography>Herencia Mexicana - Salón Jardín </Typography> 

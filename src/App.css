@@ -31,14 +31,14 @@
   color: #61dafb;
 }
 .globos{
-  margin-left: -650px;
+  margin-left: -550px;
   margin-top: -70px;
   width: 300px;
   position: fixed;
 }
 .margen{
   border: 5px solid rgb(139, 4, 4) !important;    
-  height: 1066px;
+  height: 800px;
   width: 100%;
   border-radius:1%;
 }
@@ -48,7 +48,7 @@
   background-repeat: no-repeat;
   background-size: 100%;
   border-right: 1px outset black;
-  height: 1068px;
+  height: 800px;
 }
 .bg-image {
   opacity: 0.7;
@@ -58,14 +58,15 @@
 .esqui-sup-der{
   z-index: 10;
   position: absolute;
-  margin-top: -70px;
-  margin-left: 354px;
+  margin-top: -64px;
+  margin-left: 229px;
   width: 276px;
 }
 .esquina-inf-izq{
-  margin-top: -75px;
-    width: 250px;
-    margin-left: -1000px;
+  margin-top: -128px;
+  width: 250px;
+  margin-left: -737px;
+
 }
 .container{
   display: flex;
@@ -92,12 +93,13 @@
   padding: 10%;
   font-size: 20px;
   font-weight: 500;
+  margin-top: -76px;
 }
 .left-txts{
   margin-top: 5%;
 }
 .textoQuince{
-  font-size: 104px;
+  font-size: 95px;
   font-family: Papyrus, fantasy;
   color: white;
   -webkit-text-stroke: 3px black;
@@ -131,7 +133,7 @@
   .margen{
     border: 5px solid rgb(139, 4, 4) !important;    
     height: 1566px;
-    width: 100%;
+    width: 98%;
     border-radius:1%;
   }
 }
