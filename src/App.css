@@ -31,13 +31,13 @@
   color: #61dafb;
 }
 .globos{
-  margin-left: -550px;
+  margin-left: -350px;
   margin-top: -70px;
   width: 300px;
   position: fixed;
 }
 .lugar-evento{
-  margin-top: -76px
+  margin-top: -56px
 }
 .margen{
   border: 5px solid rgb(139, 4, 4) !important;    
@@ -51,25 +51,40 @@
   background-repeat: no-repeat;
   background-size: 100%;
   border-right: 1px outset black;
-  height: 800px;
+  height: 600px;
 }
 .bg-image {
   opacity: 0.7;
   margin-top: 10px;
-  width: 250px;
+  width: 220px;
 }
 .esqui-sup-der{
   z-index: 10;
   position: absolute;
   margin-top: -64px;
-  margin-left: 229px;
-  width: 276px;
+  margin-left: 2629px;
+  width: 300px;
 }
-.esquina-inf-izq{
-  margin-top: -128px;
+.esquina-inf-izq {
+  margin-top: 630px;
   width: 250px;
-  margin-left: -737px;
-
+  margin-right: 760px;
+  z-index: 10;
+  position: absolute;
+}
+.esqui-sup-izq{
+  z-index: 10;
+  position: absolute;
+  margin-top: -64px;
+  margin-left: -750px;
+  width: 300px;
+}
+.esquina-inf-der {
+  margin-top: 600px;
+  width: 270px;
+  margin-right: -2600px;
+  z-index: 10;
+  position: absolute;
 }
 .container{
   display: flex;
@@ -81,49 +96,94 @@
   width: 50%;
   float: left;
   position: relative; 
+  height: 600px;
 }
 
 .nombreSara{
   font-family: Papyrus, fantasy;
-  font-size: 50px;
+  font-size: 45px;
   color: white;
   font-weight: bold; 
-  -webkit-text-stroke: .3px black 
+  -webkit-text-stroke: .3px black;
+  margin-top: -20px;
 }
 .texto{  
   color: rgb(107, 107, 107);
   text-align: center;
   padding: 10%;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
-  margin-top: -76px;
+  margin-top: -56px;
 }
 .left-txts{
   margin-top: 5%;
 }
 .textoQuince{
-  font-size: 95px;
+  font-size: 85px;
   font-family: Papyrus, fantasy;
-  color: white;
+  color: white; 
   -webkit-text-stroke: 3px black;
+  margin-top: -20px;
+}
+.itemGrid{
+  -webkit-box-shadow: 18px 25px 14px -13px rgba(170, 4, 4, 0.75);
+  -moz-box-shadow: 18px 25px 14px -13px rgba(172, 0, 0, 0.75);
+  box-shadow: 18px 25px 14px -13px rgba(121, 0, 0, 0.75);
+}
+.sombras{ 
+  color: rgb(139, 4, 4) !important;  
+  text-align: center ;  
+  font-weight: bold;
+}
+.numbers{
+  font-size:60px ;
+}
+@media (max-width: 1450px) {
+  .esquina-inf-izq {
+    margin-top: 400px;
+    width: 270px;
+    margin-right: 490px;
+    z-index: 10;
+    position: absolute;
+  }
+  .esquina-inf-der {
+    margin-top: 400px;
+    width: 270px;
+    margin-right: -1800px;
+    z-index: 10;
+    position: absolute;
+  }
+  .esqui-sup-der{
+    z-index: 10;
+    position: absolute;
+    margin-top: -64px;
+    margin-left: 1750px;
+    width: 290px;
+  }
+  .esqui-sup-izq{
+    z-index: 10;
+    position: absolute;
+    margin-top: -64px;
+    margin-left: -450px;
+    width: 290px;
+  }
 }
 /* Estilo para vista móvil */
-@media (max-width: 768px) { /* Puedes ajustar el valor según tus necesidades */
-  .container {
-    flex-direction: column; /* Cambia la dirección de los hijos a columna */ 
-  }
+@media (max-width: 600px) { /* Puedes ajustar el valor según tus necesidades */
+  .numbers{
+    font-size:40px ;
+  } 
   .texto{
     margin-top: 30px;
    }
-
-  
+   
   .derecha {
     margin: 5px 0; /* Ajusta los márgenes para vista móvil */
     width: 100%; 
   }
 
   .lugar-evento{
-    margin-top: 10px
+    margin-top: 20px
   }
 
   .izquierda {  
@@ -133,14 +193,16 @@
   .esqui-sup-der{
     z-index: 10;
     position: absolute;
-    margin-top: -1320px;
-    margin-left: 154px;
-    width: 100px;
+    margin-top: -50px;
+    margin-left: 254px;
+    width: 180px;
   }
-  .esquina-inf-izq{
-    margin-top: 75px;
-    width: 250px;
-      
+  .esquina-inf-izq{ 
+    width: 450px;
+    margin-top: 1080px;
+    margin-left: 230px;
+    width: 170px;
+    position: absolute;
   }
   .margen{
     border: 5px solid rgb(139, 4, 4) !important;    
@@ -151,7 +213,28 @@
   .slider{
     margin-top: 160px;
   }
+  .bg-image {
+    opacity: 0.7;
+    margin-top: 10px;
+    width: 150px;
+  }
+  .esqui-sup-izq{
+    z-index: 10;
+    position: absolute;
+    margin-top: -44px;
+    margin-left: -270px;
+    width: 150px;
+  }
+  .esquina-inf-der {
+    width: 450px;
+    margin-top: 1070px;
+    margin-left: -1560px;
+    width: 180px;
+    position: absolute;
+  }
+
 }
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -160,3 +243,4 @@
     transform: rotate(360deg);
   }
 }
+
