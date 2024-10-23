@@ -11,23 +11,37 @@ import imagenFondo from "../assets/29f4e7b25050efa9e18377d17e356be1-removebg-pre
 import esquina1 from "../assets/esquina1.png"
 import esquina2 from "../assets/esquina.png"
 import esquina3 from "../assets/esquinainfizq.png"
-import esquina4 from "../assets/esquina4.png"
-import globos from "../assets/globos.png"
+import esquina4 from "../assets/esquina4.png" 
 import axios from 'axios';
 import sarita2 from '../assets/sarita2.png'
 import sarita1 from '../assets/sarita1.png'
 import quinceanera from '../assets/quinceanera.png'
-import Particles from "react-tsparticles";
+import Modal from '@mui/material/Modal';
 import ConfettiComponent from "./ConfettiComponent";
-
+import Confetti from 'react-confetti';
 
 const Invitacion = () => {
-  const [showConfetti, setShowConfetti] = useState(true);
+  const [showConfetti, setShowConfetti] = useState(false);
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   const isMobile = useMediaQuery('(max-width:600px)');
   const [windowSize, setWindowSize] = useState({
     width: window.innerWidth,
     height: window.innerHeight
   });
+
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+  };
 //641 * 1366
 //953*1920
   console.log("ancho = ",windowSize)
@@ -36,8 +50,9 @@ const Invitacion = () => {
   const queryParams = new URLSearchParams(location.search);
   const family = queryParams.get('family');
   const handlePostRequest = async () => { 
- 
- 
+    handleOpen()
+    setShowConfetti(true);
+    setTimeout(() => setShowConfetti(false), 10000); // Confetti dura 3 segundos
       // Datos que se enviarán en la solicitud POST
       const data = {
         "familia": family,
@@ -97,7 +112,10 @@ const Invitacion = () => {
         overflowY: isMobile ? 'auto' : 'hidden', // Permitir scroll vertical solo en móviles
         padding:"15px"
       }}
-    ><ConfettiComponent showConfetti={showConfetti} />
+    >
+      <div>
+        {showConfetti && <Confetti style={{"z-index":"1000000"}}/>}
+      </div>
       <Grid
         container
         spacing={0} // Eliminar el espacio entre columnas
@@ -118,7 +136,7 @@ const Invitacion = () => {
             justifyContent: 'flex-start', // Mantener el contenido alineado al principio
             alignItems: 'center', // Centrar todo el contenido horizontalmente
           }}
-        >
+        >  
           <img src={esquina2} className='esqui-sup-der'></img>
           <img src={esquina1} className='esqui-sup-izq'></img>
           {/* Imagen centrada dentro de la columna izquierda */}
@@ -140,6 +158,7 @@ const Invitacion = () => {
                 <Typography style={{marginTop:"45px",fontWeight:"bold"}}>{family}</Typography>
               </Box>
               <Box className="lugar-evento">
+                <Typography>Sábado 1 de Marzo de 2025 a las 4:00 p.m.</Typography>
                 <Typography>Lugar del evento:</Typography>
                 <a href='https://maps.app.goo.gl/i2jtqN7zFz5Ztqh57' target='_blank'>
                   <Typography>Herencia Mexicana - Salón Jardín </Typography> 
@@ -207,6 +226,21 @@ const Invitacion = () => {
           
         </Grid>
       </Grid>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+              Gracias por confirmar!
+            </Typography>
+            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+              Te estaré esperando para disfrutar en compañia de las personas más importantes en mi vida.
+            </Typography>
+          </Box>
+        </Modal>
     </Box>
   );
 };
