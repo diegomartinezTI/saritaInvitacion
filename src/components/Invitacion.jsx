@@ -58,7 +58,7 @@ const Invitacion = () => {
       };
 
       // Enviar la solicitud POST
-      axios.post('http://54.89.77.206:8000/api/confirmations/', data)
+      axios.post('https://misquince-sarita.site/api/confirmations/', data)
       .then(response => { 
         setShowConfetti(true);
         setTimeout(() => setShowConfetti(false), 10000); // Confetti dura 3 segundos
