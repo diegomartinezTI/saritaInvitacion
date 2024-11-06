@@ -1,8 +1,7 @@
 import React,{useState} from 'react';
 import './Home.css'; 
-import { Box, Grid, Typography, useMediaQuery,Button } from '@mui/material';
-import Slider from "react-slick";
-import ImageSlider from './ImageSlider';
+import { Box, Grid, Typography, useMediaQuery,Button,TextField } from '@mui/material';
+import Slider from "react-slick"; 
 import DayCounter from './DayCounter';
 import { useLocation } from 'react-router-dom';
 import "slick-carousel/slick/slick.css"; 
@@ -16,13 +15,13 @@ import axios from 'axios';
 import sarita2 from '../assets/sarita2.png'
 import sarita1 from '../assets/sarita1.png'
 import quinceanera from '../assets/quinceanera.png'
-import Modal from '@mui/material/Modal';
-import ConfettiComponent from "./ConfettiComponent";
+import Modal from '@mui/material/Modal'; 
 import Confetti from 'react-confetti';
 
 const Invitacion = () => {
   const [showConfetti, setShowConfetti] = useState(false);
   const [open, setOpen] = React.useState(false);
+  const [inputValue, setInputValue] = useState('');
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const isMobile = useMediaQuery('(max-width:600px)');
@@ -30,7 +29,9 @@ const Invitacion = () => {
     width: window.innerWidth,
     height: window.innerHeight
   });
-
+  const handleChange = (event) => {
+    setInputValue(event.target.value); // Actualiza el estado con el nuevo valor del input
+  };
   const style = {
     position: 'absolute',
     top: '50%',
@@ -43,31 +44,31 @@ const Invitacion = () => {
     p: 4,
   };
 //641 * 1366
-//953*1920
-  console.log("ancho = ",windowSize)
+//953*1920 
 
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const family = queryParams.get('family');
-  const handlePostRequest = async () => { 
-    handleOpen()
-    setShowConfetti(true);
-    setTimeout(() => setShowConfetti(false), 10000); // Confetti dura 3 segundos
+  const handlePostRequest = async (event) => { 
+      event.preventDefault(); 
       // Datos que se enviarán en la solicitud POST
       const data = {
         "familia": family,
-        "telefono": "123213"
+        "telefono": inputValue
       };
 
       // Enviar la solicitud POST
-      axios.post('http://127.0.0.1:8000/api/confirmations/', data)
-      .then(response => {
-        
+      axios.post('http://54.89.77.206:8000/api/confirmations/', data)
+      .then(response => { 
+        setShowConfetti(true);
+        setTimeout(() => setShowConfetti(false), 10000); // Confetti dura 3 segundos
         console.timeEnd("LAMBDA.................",response)
         //decode64ToStream(response.data.base64);
         
       })
-      .catch(error => {
+      .catch(error => { 
+        setShowConfetti(true);
+        setTimeout(() => setShowConfetti(false), 10000); // Confetti dura 3 segundos
         console.error('Error en la petición:', error);
       });
  
@@ -216,7 +217,7 @@ const Invitacion = () => {
           </Box>
            {/* Botón centrado debajo del slider */}
            <Box sx={{ marginTop: '20px' }}> {/* Espacio entre el slider y el botón */}
-            <Button style={{background:"#8b0404"}} onClick={handlePostRequest} variant="contained">
+            <Button style={{background:"#8b0404"}} onClick={handleOpen} variant="contained">
                     Confirmar Asistencia
                   </Button>
             </Box>
@@ -233,9 +234,15 @@ const Invitacion = () => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-            <Typography id="modal-modal-title" variant="h6" component="h2">
-              Gracias por confirmar!
+            <Typography id="modal-modal-title" variant="h9" component="h9">
+              Compartenos un número de teléfono por si tenemos algún cambio poder avisarte.
             </Typography>
+            <Box style={{marginTop:"10px"}}>
+              <Box><TextField id="outlined-basic" label="Teléfono" placeholder='7228986114' variant="outlined" value={inputValue}  onChange={handleChange}/></Box>
+              <Button style={{background:"#8b0404",marginTop:"10px"}} onClick={handlePostRequest} variant="contained">
+                    Confirmar
+                  </Button>
+            </Box>
             <Typography id="modal-modal-description" sx={{ mt: 2 }}>
               Te estaré esperando para disfrutar en compañia de las personas más importantes en mi vida.
             </Typography>
