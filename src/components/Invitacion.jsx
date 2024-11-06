@@ -22,6 +22,7 @@ const Invitacion = () => {
   const [showConfetti, setShowConfetti] = useState(false);
   const [open, setOpen] = React.useState(false);
   const [inputValue, setInputValue] = useState('');
+  const [final, setFinal] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const isMobile = useMediaQuery('(max-width:600px)');
@@ -63,6 +64,7 @@ const Invitacion = () => {
         setShowConfetti(true);
         setTimeout(() => setShowConfetti(false), 10000); // Confetti dura 3 segundos
         console.timeEnd("LAMBDA.................",response)
+        setFinal(true)
         //decode64ToStream(response.data.base64);
         
       })
@@ -234,7 +236,8 @@ const Invitacion = () => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-            <Typography id="modal-modal-title" variant="h9" component="h9">
+            {!final&&
+            <Box style={{textAlign:"center"}}><Typography id="modal-modal-title" variant="h9" component="h9">
               Compartenos un número de teléfono por si tenemos algún cambio poder avisarte.
             </Typography>
             <Box style={{marginTop:"10px"}}>
@@ -242,10 +245,15 @@ const Invitacion = () => {
               <Button style={{background:"#8b0404",marginTop:"10px"}} onClick={handlePostRequest} variant="contained">
                     Confirmar
                   </Button>
-            </Box>
+            </Box></Box>}
+            {final&&
             <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+              <h2>
+                Gracias por confirmar
+              </h2>
               Te estaré esperando para disfrutar en compañia de las personas más importantes en mi vida.
             </Typography>
+            }
           </Box>
         </Modal>
     </Box>
